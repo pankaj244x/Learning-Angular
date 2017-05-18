@@ -1,0 +1,24 @@
+{
+	"records":[
+		{
+			"Name":"Mehul",
+			"Age":"18",
+			"Fav_color": "orange"
+		},
+		{
+			"Name":"Jai",
+			"Age":"18",
+			"Fav_color": "Darkorchid"
+		},
+		{
+			"Name":"Alex",
+			"Age":"27",
+			"Fav_color": "blue"
+		},
+		{
+			"Name": "Anonymous",
+			"Age": "???", 
+			"Fav_color": "red"
+		}
+	]
+}

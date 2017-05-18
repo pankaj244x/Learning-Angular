@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> AngularJS | Hands On! </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+	<!-- 
+	<script src="angular-route.js"></script>
+	
+	<script src="angular-resource.js"></script>
+	
+	<script src = "controller2.js"></script>
+	<script src = "login.js"></script> 
+	<script src="controller.js"></script>
+	<script src="services.js"></script>
+	<script src="factory.js"></script>
+	<script src="providers.js"></script>
+	<script src="script.js"></script> -->
+	<script src="todo.js"></script>
+	<style>
+	span.done-true {
+	color: gray;
+	font-style: italic;
+	text-decoration: line-through;
+	}
+	span[contenteditable="true"]{
+		background: gray;
+		padding: 3px;
+	}
+	</style>
+
+</head>
+<body ng-app="mainApp" ng-controller="app">
+<!--
+	<input type="text" ng-model="name">
+	<div ng-bind="name"></div>
+	<p>This is a paragraph for {{name}}</p>
+	<div ng-init="language='AngularJS'">
+		Your Preferred language:<input type="text" ng-model="language">
+		{{language}}
+	</div>
+	<div ng-init="myFavLan=[{name: 'PHP', extension:'.php'}, {name:'Java', extension:'.java'}, {name: 'CSS', extension: '.css'},
+	{name: 'c++', extension: '.cpp'}]">
+		<p ng-repeat="language in myFavLan">
+			Name: {{language.name}}<br>
+			Extension: {{language.extension}}<br>
+		</p>
+	
+	</div>
+		
+	<div ng-controller="language">
+		Select your favourite language:
+		<button ng-click="php()">PHP</button>
+		<button ng-click="node()">Node.js</button> 
+		<button ng-click="css()">css</button>
+		<button ng-click="none()">none</button>
+		
+		<p>You have selected: {{myFavLanguage}}</p>
+	</div>
+	<script>
+		var application = angular.module('myApp', []);
+		application.controller('language', function($scope){
+			$scope.myFavLanguage = 'None';
+			
+			$scope.php = function(){
+				$scope.myFavLanguage = 'PHP';
+			};
+			
+			$scope.node = function(){
+				$scope.myFavLanguage = 'Node.Js';
+			};
+			
+			$scope.css = function(){
+				$scope.myFavLanguage = 'CSS';
+			};
+			
+			$scope.none = function(){
+				$scope.myFavLanguage = 'You have selected Nothing';
+			};
+		});
+	</script>
+	
+	Your Name: <input type="text" ng-model="name"><br>
+	Welcome {{name | uppercase}}<br>
+	Welcome {{name | lowercase}}
+	<br>
+	Currency: <input type="text" ng-model="price"><br>
+	Welcome {{price | currency: "Rs. "}}<br>
+	Welcome {{price | currency: "Rs. ":0}}
+	<script>
+		
+	</script>
+	
+	
+	<div ng-include="'dummy.html'">
+	</div>
+	
+	
+	<div ng-view></div>
+	<input type="text" ng-model="searchBox">
+	<div ng-controller="people">
+		<ul>
+			<h2>Names and age of Programmers in the Local Area:</h2>
+			<li ng-repeat="person in persons | filter: globalSearch">
+				{{person.Name + ':' + person.Age + " Fav Color: " + person.Fav_color}}
+			</li>
+		</ul>
+	</div>
+	<div id="searchBoxes">
+		Global Search Filter:<input type="text" ng-model="globalSearch.$"><br>
+		Name Search<input type="text" ng-model="globalSearch.Name"><br>
+		Age Search <input type="text" ng-model="globalSearch.Age"><br>
+		Color Search<input type="text" ng-model="globalSearch.Fav_color">
+		
+	</div>
+	
+	<input type="text" ng-model="message.property">
+	<p ng-repeat="i in [1]">
+		<input type="text" ng-model="message.property">
+		You wrote: {{message.property}}
+	</p>
+	outer you wrote {{message.property}}
+	
+	<div ng-controller="app">
+		<li ng-repeat="i in range track by $index">
+		something<br>
+		</li>
+	</div>
+	
+	<input type="text" ng-model="myText">
+	<br> You updated textbox: {{counter}} times.
+	<span> {{myRandomNumber}}</span>
+	<br>
+	<input type="button" value="Generate"> 
+	
+	<button ng-click="generateRandom()"> Generate Random Number</button>
+	<br>{{randomNumber}} 
+	{{greetMessage}} 
+		<button ng-click="toggle()"> Toggle Message</button>
+		<div class="message" ng-show="show == 'msg1'">
+		This is message 1</div>
+		<div class="message" ng-show="show == 'msg2'">
+		This is message 2</div> -->
+		<h1 style="text-align: center;"> Add a Task</h1>
+		<input ng-model="task" ng-keyup="searchEnter()" type="text" style="display: block; margin: 0 auto; padding: 5px; font-size: 15px; width:300px;">
+		<div id="tasksToShow">
+			<ul>
+				<li ng-repeat="oneTask in tasks track by $index">
+				<input type="checkbox" ng-model="oneTask.status">
+					<span contenteditable="false" ng-dblclick="contentEdit(oneTask.taskMessage)" ng-keydown="enterAgain()" ng-model="oneTask.taskMessage" class="done-{{oneTask.status}}">
+					{{oneTask.taskMessage}}
+					</span>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
